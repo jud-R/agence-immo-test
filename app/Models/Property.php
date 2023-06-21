@@ -12,6 +12,18 @@ class Property extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'surface', 'price', 'city'];
+    protected $fillable = [
+        'title',
+        'description',
+        'surface',
+        'rooms',
+        'bedrooms',
+        'floor',
+        'price',
+        'city',
+        'address',
+        'postal_code',
+        'sold',
+    ];
 
 }

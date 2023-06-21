@@ -7,13 +7,13 @@
 
 <h1>@yield('title')</h1>
 
-<form action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}" method="POST">
+<form class="vstack gap-2" action="{{ route($property->exists ? 'admin.property.update' : 'admin.property.store', $property) }}" method="POST">
 @csrf
 @method($property->exists ? 'PUT' : 'POST')
 
 <div>
     <div class="row">
-        @include('shared.input', ['class' => 'col' ,'label' => 'Titre', 'name' => 'title','value' => $property->name])
+        @include('shared.input', ['class' => 'col' ,'label' => 'Titre', 'name' => 'title','value' => $property->title])
         <div class="col row">
             @include('shared.input', ['class' => 'col' , 'name' => 'surface','value' => $property->surface])
             @include('shared.input', ['class' => 'col' , 'name' => 'price', 'label' => 'Prix','value' => $property->price])
@@ -31,6 +31,8 @@
         @include('shared.input', ['class' => 'col' , 'name' => 'postal_code', 'label' => 'Code Postal','value' => $property->postal_code])
         @include('shared.input', ['class' => 'col' , 'name' => 'city', 'label' => 'Ville','value' => $property->city])
     </div>
+    @include('shared.checkbox', ['name' => 'sold', 'label' => 'Vendu','value' => $property->sold])
+
     
     
     <button class="btn btn-primary">

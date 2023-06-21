@@ -10,7 +10,7 @@ $value ??= '';
 <div @class(["form-group", $class])>
     <label for="{{ $name }}">{{ $label }}</label>
     @if ($type === 'textarea')
-        <textarea class="form-control @error($name) is-invalid @enderror" type="{{ $type }}" name="{{ $name }}" id="{{ $name }}">
+        <textarea class="form-control @error($name) is-invalid @enderror" name="{{ $name }}" id="{{ $name }}">
             {{old($name, $value)}}
         </textarea>
     @else
