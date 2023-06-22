@@ -34,14 +34,15 @@
     @include('shared.checkbox', ['name' => 'sold', 'label' => 'Vendu','value' => $property->sold])
 
     
-    
-    <button class="btn btn-primary">
-        @if ($property->exists)
-            Modifier
-        @else
-            Créer
-        @endif
-    </button>
+    <div>
+        <button class="btn btn-primary">
+            @if ($property->exists)
+                Modifier
+            @else
+                Créer
+            @endif
+        </button>
+    </div>
 </div>
 </form>
     
