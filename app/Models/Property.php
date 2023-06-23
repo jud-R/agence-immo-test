@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Option;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 /**
  * @mixin IdeHelperProperty
@@ -25,5 +27,9 @@ class Property extends Model
         'postal_code',
         'sold',
     ];
+
+    public function options(): BelongsToMany {
+      return $this->belongsToMany(Option::class);  
+    }
 
 }

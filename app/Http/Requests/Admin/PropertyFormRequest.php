@@ -17,7 +17,7 @@ class PropertyFormRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array|string>
+     * @return array<string, \Illuminate\Contracts\Validation\Rule|array|string>
      */
     public function rules(): array
     {
@@ -33,6 +33,7 @@ class PropertyFormRequest extends FormRequest
             'address' => ['required', 'min:8'],
             'postal_code' => ['required', 'min:3'],
             'sold' => ['required', 'boolean'],
+            'options' => ['array', 'exists:options,id', 'required']
         ];
     }
 }
